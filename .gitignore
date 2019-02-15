@@ -60,6 +60,7 @@ coverage.xml
 
 # Other test bench
 test1.pyw
+test2.pyw
 
 # Translations
 *.mo
