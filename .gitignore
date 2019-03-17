@@ -11,9 +11,6 @@ __pycache__/
 
 # Visual Studio Code
 .vscode/
-
-# VisualStudio
-.vscode/
 .vs/
 
 # Resources
