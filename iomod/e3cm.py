@@ -6,36 +6,41 @@ import io
 import os
 import struct
 import zipfile
+import logging
+import pathlib
 
+logger = logging.getLogger()
 
 class E3cc:
     """"
     para abrir archivos e3c
     """
     def __init__(self):
-        """"
-
-        """
         self.reade3c()
         self.e3cfilesize()
-        self.ensure_dir()
+        # self.ensure_dir()
         self.reade3cecg()
-        self.unzipfiles()
+        self._unzipfiles()
 
-    def unzipfiles(self, path, dir):
-        """"
+    def _unzipfiles(self, fpath, wdir):
+        logger.debug('descomprimido')
+        # logger.debug(type(wdir))
+        try:
+            zip_ref = zipfile.ZipFile(fpath, 'r')
+            zip_ref.extractall(wdir)
+            zip_ref.close()
+            logger.info(fpath)
 
-        """
-        zip_ref = zipfile.ZipFile(path, 'r')
-        zip_ref.extractall(dir)
-        zip_ref.close()
+        except zipfile.BadZipFile:
+            logger.error('este archivo esta corrupto')
+            pass
 
-    def ensure_dir(self, file, dir):
-        dir = os.path.dirname(file)
-        if not os.path.exists(dir):
-            os.makedirs(dir)
+    # def ensure_dir(self, file, dir):
+    #     dir = os.path.dirname(file)
+    #     if not os.path.exists(dir):
+    #         os.makedirs(dir)  # make sure that when you open any file it does exist in first place tip check this in smain
 
-    def reade3cecg(self, file, channels, fs, time_start, time_len):
+    def reade3cecg(self, file, channels, fs, time_start=0, time_len=50):
         """"This function gets the ECG data from record
             Parameters:
                 File: ECG record file
@@ -86,7 +91,7 @@ class E3cc:
           fs: Sampling frequency (250 Hz)
           timeStart: Time (in seconds)
           timeLen: Window length (in seconds)
-    """""
+        """""
         fid = open(file, "rb")  # Read only file. Open in binary mode for portability
 
         fid.seek(0, 2)
@@ -110,15 +115,50 @@ class E3cc:
 
         return samples, timeval
 
-    def reade3c(self, filename, pname, time_start=0, time_len=50):
+    def reade3c(self, filename, arch, time_start=0, time_len=50):
     ##funcion para leer el archivo qrs del excorde
     ##formato de los archivos inicio(4by), fin(4by), patron(4by), picoR(4by), RRanterior(4by),
     ##RRpromedio(4bay), Clasficacion(2by)
     ## FID es dado por la funcion fopen, num_m es el numero de muestras a leer
     ## devuelve RRanterior, picoR
+        #
+        # file1 = pname + filename + '.QRS'
+        # file2 = pname + filename + '.ECG'
+        # if arch win32 purepathwindows else linux or mac purepathposix
 
-        file1 = pname + filename + '.QRS'
-        file2 = pname + filename + '.ECG'
+
+        if arch=='Windows':
+            workdirpath = pathlib.PureWindowsPath(pathlib.Path.home().joinpath('AppData/Local/PyECG/temp'))
+            wokrdir = pathlib.Path(workdirpath)
+            try:
+                # se crea el directorio de trabajo si no existe
+                wokrdir.mkdir(parents=True)
+                # logger.debug("directorio /temp creado")
+                pass
+            except FileExistsError:
+                logger.debug("directorio ya existe")
+                pass
+            except Exception:
+                logger.debug('Opps!!')
+                pass
+            self._unzipfiles(self, fpath=filename, wdir=workdirpath)
+            file1 = workdirpath.joinpath('current.QRS')
+            file2 = workdirpath.joinpath('current.ECG')
+        elif arch=='Linux':
+            workdirpath = pathlib.PurePosixPath(pathlib.Path.home().joinpath('var/temp/PyECG/temp'))
+            workdir = pathlib.Path(workdirpath)
+            try:
+                workdir.mkdir(parents=True)
+                logger.debug("directorio creado")
+            except FileExistsError:
+                logger.debug("el directorio ya existe")
+                pass
+            self._unzipfiles(fpath=filename, wdir=workdirpath)
+            file1 = workdirpath.joinpath('current.QRS')
+            file2 = workdirpath.joinpath('current.ECG')
+        else:
+            logger.error("arcquitetura desconocida")
+            pass
 
         Header = {'Channels': 2, 'Fs': 250}
 
@@ -231,11 +271,24 @@ class E3cc:
 
         return Header, Data
 
-    def main(self,):
-        """"
-        prueba
-        """
-if __name__=='__main__':
+def main():
     """"
-    
+    test read
     """
+    import platform
+    direc = r'C:\Users\DNA\DataRaw\7.e3c'
+    tempdir = r'C:\Users\DNA\AppData\Local\PyECG\aka'
+    sd = pathlib.Path(direc)
+    df = pathlib.Path(tempdir)
+    m3 = E3cc()
+    # m3._unzipfiles(sd,df)
+    archname = platform.system()
+    m3.reade3c(filename=direc, arch=archname, time_len=500)
+    pass
+
+
+if __name__ == '__main__':
+    import pyqtgraph as pg
+
+    logging.basicConfig(level=logging.DEBUG)
+    main()

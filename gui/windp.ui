@@ -192,8 +192,8 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>200</width>
-           <height>365</height>
+           <width>98</width>
+           <height>87</height>
           </rect>
          </property>
          <attribute name="label">
@@ -213,8 +213,8 @@
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>182</width>
-               <height>347</height>
+               <width>98</width>
+               <height>69</height>
               </rect>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout">
@@ -363,8 +363,8 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>200</width>
-           <height>365</height>
+           <width>98</width>
+           <height>87</height>
           </rect>
          </property>
          <attribute name="label">
@@ -384,8 +384,8 @@
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>182</width>
-               <height>347</height>
+               <width>98</width>
+               <height>69</height>
               </rect>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -430,8 +430,8 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>200</width>
-           <height>365</height>
+           <width>98</width>
+           <height>87</height>
           </rect>
          </property>
          <attribute name="label">
@@ -451,8 +451,8 @@
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>182</width>
-               <height>347</height>
+               <width>98</width>
+               <height>69</height>
               </rect>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -547,7 +547,7 @@
              </widget>
             </item>
             <item row="1" column="0">
-             <widget class="GraphicsLayoutWidget" name="graphicsView_6">
+             <widget class="PlotWidget" name="graphicsView_1">
               <property name="minimumSize">
                <size>
                 <width>0</width>
@@ -563,7 +563,7 @@
              </widget>
             </item>
             <item row="0" column="0">
-             <widget class="GraphicsLayoutWidget" name="graphicsView">
+             <widget class="PlotWidget" name="graphicsView">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                 <horstretch>0</horstretch>
@@ -693,7 +693,7 @@
                   </property>
                   <layout class="QGridLayout" name="gridLayout_20">
                    <item row="0" column="0">
-                    <widget class="GraphicsLayoutWidget" name="graphicsView_1"/>
+                    <widget class="GraphicsLayoutWidget" name="graphicsView_2"/>
                    </item>
                   </layout>
                  </widget>
@@ -709,7 +709,7 @@
                   </property>
                   <layout class="QGridLayout" name="gridLayout_19">
                    <item row="0" column="0">
-                    <widget class="GraphicsLayoutWidget" name="graphicsView_2"/>
+                    <widget class="GraphicsLayoutWidget" name="graphicsView_3"/>
                    </item>
                   </layout>
                  </widget>
@@ -725,7 +725,7 @@
                   </property>
                   <layout class="QGridLayout" name="gridLayout_18">
                    <item row="0" column="0">
-                    <widget class="GraphicsLayoutWidget" name="graphicsView_3"/>
+                    <widget class="GraphicsLayoutWidget" name="graphicsView_4"/>
                    </item>
                   </layout>
                  </widget>
@@ -757,7 +757,7 @@
           <item row="0" column="0">
            <layout class="QGridLayout" name="gridLayout_4">
             <item row="0" column="0">
-             <widget class="PlotWidget" name="graphicsView_4"/>
+             <widget class="PlotWidget" name="graphicsView_5"/>
             </item>
            </layout>
           </item>
@@ -771,7 +771,7 @@
           <item row="0" column="0">
            <layout class="QGridLayout" name="gridLayout_5">
             <item row="0" column="0">
-             <widget class="PlotWidget" name="graphicsView_5"/>
+             <widget class="PlotWidget" name="graphicsView_6"/>
             </item>
            </layout>
           </item>
