@@ -11,9 +11,7 @@ ______
 
 import sys
 import pyqtgraph as pg
-from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QApplication, QMainWindow, qApp
-import pyqtgraph as pg
 from gui.windp import Ui_MainWindow
 
 

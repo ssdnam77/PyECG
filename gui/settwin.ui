@@ -6,14 +6,33 @@
    <rect>
     <x>0</x>
     <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
     <width>640</width>
     <height>480</height>
-   </rect>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Configuración</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
+   <item row="1" column="2">
+    <spacer name="horizontalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>242</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
    <item row="1" column="0">
     <spacer name="horizontalSpacer">
      <property name="orientation">
@@ -31,24 +50,11 @@
     </spacer>
    </item>
    <item row="1" column="1">
-    <widget class="QPushButton" name="pbDefault">
+    <widget class="QPushButton" name="sett_pb_default">
      <property name="text">
       <string>Defecto</string>
      </property>
     </widget>
-   </item>
-   <item row="1" column="2">
-    <spacer name="horizontalSpacer_2">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>242</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
    </item>
    <item row="1" column="3">
     <widget class="QDialogButtonBox" name="buttonBox">
@@ -61,7 +67,14 @@
     </widget>
    </item>
    <item row="0" column="0" colspan="4">
-    <widget class="QTabWidget" name="tabWidget">
+    <widget class="QTabWidget" name="sett_tab_widget">
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
      <property name="tabPosition">
       <enum>QTabWidget::West</enum>
      </property>
@@ -69,7 +82,7 @@
       <enum>QTabWidget::Triangular</enum>
      </property>
      <property name="currentIndex">
-      <number>3</number>
+      <number>0</number>
      </property>
      <property name="iconSize">
       <size>
@@ -88,13 +101,6 @@
        <string>Interfaz</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout_2">
-       <item row="0" column="0">
-        <widget class="QGroupBox" name="groupBox">
-         <property name="title">
-          <string>Lenguaje</string>
-         </property>
-        </widget>
-       </item>
        <item row="0" column="1">
         <spacer name="horizontalSpacer_3">
          <property name="orientation">
@@ -105,17 +111,50 @@
          </property>
          <property name="sizeHint" stdset="0">
           <size>
-           <width>20</width>
+           <width>200</width>
            <height>20</height>
           </size>
          </property>
         </spacer>
        </item>
-       <item row="0" column="2">
+       <item row="0" column="0">
+        <widget class="QGroupBox" name="groupBox">
+         <property name="title">
+          <string>Idioma</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_3">
+          <item row="0" column="0">
+           <widget class="QComboBox" name="sett_combobox_1">
+            <item>
+             <property name="text">
+              <string>Spanish(ES)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>English(EN)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Dutch(NL)</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="1" column="0">
         <widget class="QGroupBox" name="groupBox_2">
          <property name="title">
           <string>Estilo Visual</string>
          </property>
+         <layout class="QGridLayout" name="gridLayout_4">
+          <item row="0" column="0">
+           <widget class="QComboBox" name="sett_combobox_2"/>
+          </item>
+         </layout>
         </widget>
        </item>
       </layout>
@@ -124,16 +163,153 @@
       <attribute name="title">
        <string>Programa</string>
       </attribute>
+      <layout class="QGridLayout" name="gridLayout_6">
+       <item row="0" column="0">
+        <widget class="QScrollArea" name="scrollArea">
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="scrollAreaWidgetContents">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>738</width>
+            <height>527</height>
+           </rect>
+          </property>
+         </widget>
+        </widget>
+       </item>
+      </layout>
      </widget>
      <widget class="QWidget" name="tab_3">
       <attribute name="title">
        <string>General</string>
       </attribute>
+      <layout class="QGridLayout" name="gridLayout_7">
+       <item row="0" column="0">
+        <widget class="QScrollArea" name="scrollArea_2">
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="scrollAreaWidgetContents_2">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>738</width>
+            <height>527</height>
+           </rect>
+          </property>
+         </widget>
+        </widget>
+       </item>
+      </layout>
      </widget>
      <widget class="QWidget" name="tab_4">
       <attribute name="title">
        <string>Base de Datos</string>
       </attribute>
+      <layout class="QGridLayout" name="gridLayout_5">
+       <item row="0" column="0">
+        <widget class="QGroupBox" name="groupBox_3">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>80</height>
+          </size>
+         </property>
+         <property name="title">
+          <string>Ubicación de la Base de datos</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_8">
+          <item row="0" column="0">
+           <widget class="QLineEdit" name="sett_db_lineEdit">
+            <property name="dragEnabled">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <spacer name="horizontalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Preferred</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>30</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="0" column="2">
+           <widget class="QPushButton" name="sett_db__open_button">
+            <property name="text">
+             <string>Abrir</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="3">
+           <spacer name="horizontalSpacer_5">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Preferred</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>30</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="0" column="4">
+           <widget class="QPushButton" name="sett_db__new_button">
+            <property name="text">
+             <string>Nueva BD</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="5">
+           <spacer name="horizontalSpacer_6">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Preferred</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>30</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>320</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
      </widget>
     </widget>
    </item>
