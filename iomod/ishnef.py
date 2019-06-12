@@ -2,35 +2,37 @@
 
 """
 
-import pathlib
-import datetime
 import logging
+from utils.metadt import Meta
 from ishneholterlib import Holter
 
 logger = logging.getLogger("ishne_logger")
 
 
-class Ishne:
-    def __init__(self):
-
+class Ishne(Meta):
+    def __init__(self, name=None, last_name=None):
+        self.header['name'] = name
+        self.header['last_name'] = last_name
+        # self.header['age'] =
         pass
+
+    # def header(self):
+    #     pass
 
     def read_ishne(self, filename):
         ecgreg = Holter(filename)
         ecgreg.load_data()
-
-
+        return ecgreg
 
 
 def main():
-    test = Holter('60.ecg')
-    head = test.load_data()
+    test = ish.read_ishne(r'B:\60.ecg')
+    test.load_data()
+    ld1 = test.lead[0]
+    ld2 = test.lead[1]
 
-    return test.lead(0)
 
 
 if __name__ == '__main__':
-
-    h = main()
-    print(h)
-
+    ish = Ishne()
+    main()

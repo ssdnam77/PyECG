@@ -115,7 +115,10 @@ class QTRR:
         return rr_x, qt
 
     def correctmodelQTRR(rr, qt, xi, model='Linear'):
-
+        """"
+        todo: change the QTc method, add parametric correction option
+        enlazar QTc a la ui
+        """
         if model == "Linear":
             qtc = qt + xi * (1 - rr)
         elif model == "Hyperbolic":

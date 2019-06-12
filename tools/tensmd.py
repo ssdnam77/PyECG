@@ -12,7 +12,7 @@ from sktensor import dtensor,cp
 
 class tensor:
     """"
-
+    Tools for build
     """
 
     def buildtensor(self, s, r, st_int=50, end_int=80):

@@ -13,7 +13,7 @@ import scipy.interpolate as intrp
 
 class BQTVI:
     """"
-
+    Implementation of Berger index (QTVI)
     """
     def __init__(self):
         pass

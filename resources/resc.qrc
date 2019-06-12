@@ -5,6 +5,9 @@
     <file alias="Russian/ru">lang/russian.qph</file>
     <file alias="Spanish/es">lang/spanish.qph</file>
   </qresource>
+    <qresource prefix="logo">
+        <file>images/logo-PyECG.png</file>
+    </qresource>
   <qresource prefix="/icons/mono-font-awesome">
     <file>images/icons/mono-font-awesome/png/add-square-button.png</file>
     <file>images/icons/mono-font-awesome/png/adjust-contrast.png</file>
