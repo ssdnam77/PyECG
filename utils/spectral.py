@@ -1,9 +1,32 @@
 # -*- coding: utf-8 -*-
+
+#The MIT License (MIT)
+#
+#Copyright (c) 2020 Universidad de Oriente & KU Leuven
+#
+#Permission is hereby granted, free of charge, to any person obtaining a copy
+#of this software and associated documentation files (the "Software"), to deal
+#in the Software without restriction, including without limitation the rights
+#to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#copies of the Software, and to permit persons to whom the Software is
+#furnished to do so, subject to the following conditions:
+#
+#The above copyright notice and this permission notice shall be included in all
+#copies or substantial portions of the Software.
+#
+#THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+#SOFTWARE.
+
 """
 # Description: Tools for spectral processing
-# Autor: sergio.sanchez@estudiantes.uo.edu.cu
-# Date:
-# todo: agregar wavlet y demas helpers
+# Author: sergio.sanchez@estudiantes.uo.edu.cu
+# Date: 2019
+# todo: add wavelet signal processing
 # notes:
 ______
 """
@@ -39,6 +62,7 @@ def tspect(x, fs, wn):
     sPw = sum(iPw)
 
     return sPw
+
 def filtbyfft(x, fs, wn):
 
     fl = np.max([wn[0], 0])
@@ -62,6 +86,35 @@ def filtbyfft(x, fs, wn):
     xf = np.real(ixf)
 
     return xf[0:oSize]
+
+def getspectrum(sig, fs, RealFFT=True):
+
+    L = next_fast_len(sig.size)
+
+    if RealFFT:
+        s_fft = rfft(sig, L)
+
+        P2 = np.abs(s_fft / L)
+
+        P1 = P2[0:int(L / 2)]
+        P1[1: -2] = 2 * P1[1: -2]
+
+        f = fs / L * np.arange(0, L / 2, 1)
+
+        return f, P1
+
+    else:
+
+        s_fft = fft(sig, L)
+
+        P2 = np.abs(s_fft / L)
+
+        P1 = P2[0:int(L / 2)]
+        P1[1: -2] = 2 * P1[1: -2]
+
+        f = fs/L * np.arange(0, L/2, 1)
+
+        return f, P1
 
 def main():
     pass
