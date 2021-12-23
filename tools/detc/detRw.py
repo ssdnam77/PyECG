@@ -1,8 +1,37 @@
 # -*- coding: utf-8 -*-
+
+#The MIT License (MIT)
+#
+#Copyright (c) 2016 MIT Laboratory for Computational Physiology
+#
+#Permission is hereby granted, free of charge, to any person obtaining a copy
+#of this software and associated documentation files (the "Software"), to deal
+#in the Software without restriction, including without limitation the rights
+#to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#copies of the Software, and to permit persons to whom the Software is
+#furnished to do so, subject to the following conditions:
+#
+#The above copyright notice and this permission notice shall be included in all
+#copies or substantial portions of the Software.
+#
+#THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+#SOFTWARE.
+
 """
-# Description:
-# Autor:
-# Date:
+# Description: R-peak detection algorithms
+# Authors: 
+    - Alexander A. Suarez Leon
+    - Sergio D. Sanchez Mercantete
+    - Carolina Varon
+    - Rik Willems
+    - Sabine Van Huffel
+    - Carlos R. Vazquez Seisdedos 
+# Date: 2020
 # todo:
 # notes:
 _____
@@ -12,13 +41,13 @@ import numpy as np
 from utils import spectral
 import scipy.linalg as linalg
 
-class dtRw:
+class Rwd:
     """"
     docs here
     """
 
-    def __init__(self):
-        pass
+    def __init__(self, tag=0):
+        self.tag = tag
 
     def rpeak(self, s0, fs):
         """"
@@ -181,17 +210,10 @@ class dtRw:
         """"
 
         """
-        # b, a = signal.butter(4, 60/fs)
-        #
-        # yf = signal.filtfilt(b, a, y)
 
         yf = y
         yfd = np.diff(yf)
 
-        # v1 = np.median((np.abs(yfd - np.median(yfd))))
-        # v2 = np.abs(yfd) - 3*v1
-        # v3 = v2 < 0
-        # nterm = np.max(yfd[v3])
         nterm = np.max(np.abs(yfd))
 
         yfds = np.round(yfd * fac / nterm)
