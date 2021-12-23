@@ -1,0 +1,3 @@
+# PyECG
+
+PyECG is a software tool for QT interval analysis in the electrocardiogram (ECG). The software is written in Python 3.6 and among its main features includes signal filtering, Q onset, R peak and T offset detection algorithms, classifiers for irregular heartbeat identification and rejection, and tools for easy correction of automatically generated annotations. Moreover, the software includes a signal quality assessment module in order to help the researcher deciding which lead should be used. The software tool computes and plots the QT Variability Index (QTVI) and QT dynamicity parameters. Since the software is designed for cardiologists and specialists with no or little programming skills, the graphical user interface is intuitive, compact and easy to use.
