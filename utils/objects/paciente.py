@@ -7,16 +7,15 @@ from utils.objects.object import Object
 class Paciente(Object):
     table = "paciente"
 
-    id = "" ##
-    name = "" ##
-    last_name = "" ##
-    second_name = "" ##
+    id = ""  ##
+    name = ""  ##
+    last_name = ""  ##
+    second_name = ""  ##
 
-    address = "" ##
-    sex = "" ##
-    age = 0 ##
-    clinic_id = "" ##
+    address = ""  ##
+    sex = ""  ##
+    age = 0  ##
+    clinic_id = ""  ##
 
     def __str__(self):
         return self.name + "/" + self.frname + "/" + self.clnh + "/" + self.cid
-

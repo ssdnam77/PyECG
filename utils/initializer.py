@@ -2,6 +2,7 @@ import sqlite3, sys, inspect, os, logging
 from utils import manager
 from utils.objects.paciente import Paciente
 from utils.objects.registro import Registro
+
 # any new entity in the db it must import here in order to init the schema of the new db
 logger = logging.getLogger()
 
@@ -10,7 +11,7 @@ def init():
     logger.info("creating database with next structure:")
     classes = []
 
-    logger.info(manager.DBNAME) # use to by a print() insted a logger() here
+    logger.info(manager.DBNAME)  # use to by a print() insted a logger() here
 
     conn = sqlite3.connect(manager.DBNAME)
     c = conn.cursor()
@@ -27,7 +28,7 @@ def init():
 
             for x in range(0, len(fields)):
                 field = fields[x]
-                logger.info( "         " + field)
+                logger.info("         " + field)
                 query += field + " "
                 f = getattr(obj, field)
 
@@ -51,6 +52,7 @@ def init():
     conn.close()
 
     return
+
 
 def drop():
     if os.path.isfile(manager.DBNAME):

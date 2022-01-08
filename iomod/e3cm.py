@@ -89,7 +89,7 @@ class E3cc:
         timeval = [nh1, nm1, ns1]
         return samples, timeval
 
-    def reade3c(self, filename, arch, time_start=0, time_len=50):
+    def reade3c(self, filename, arch, time_start=0, time_len=5):
         """"
         funcion para leer el archivo qrs del excorde
         formato de los archivos inicio(4by), fin(4by), patron(4by), picoR(4by), RRanterior(4by),
@@ -127,7 +127,7 @@ class E3cc:
             file1 = workdirpath.joinpath('current.QRS')
             file2 = workdirpath.joinpath('current.ECG')
         else:
-            logger.error("arcquitetura desconocida")
+            logger.error("error desconocido")
             pass
         Header = {'Channels': 2, 'Fs': 250}
         fs = 250  # Sample Freq.

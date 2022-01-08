@@ -171,6 +171,7 @@ def find(object):
 
     return fl
 
+
 def delete(object):
     # todo implement delete metod
 

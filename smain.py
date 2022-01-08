@@ -21,7 +21,7 @@ import multiprocessing
 from PyQt5 import QtWidgets, QtGui, QtCore
 from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog, QDialog, QAction, qApp
 from gui.windp import Ui_MainWindow
-from gui.setwin import Ui_Dialog
+from gui.settwin import Ui_Dialog
 from resources import resc
 import pyqtgraph as pg
 
