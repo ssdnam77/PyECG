@@ -44,7 +44,7 @@ pbr==5.1.3
 pefile==2018.8.8
 pipenv==2018.11.26
 pluggy==0.9.0
-protobuf==3.7.0
+protobuf==3.18.3
 py==1.8.0
 py-algorithms==0.26.1
 pydicom==1.2.2
