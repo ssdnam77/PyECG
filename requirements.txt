@@ -9,7 +9,7 @@ biopython==1.73
 biosignal==0.0.2
 biosppy==0.6.1
 cbor2==4.1.2
-certifi==2019.3.9
+certifi==2022.12.7
 chardet==3.0.4
 colorama==0.4.1
 cycler==0.10.0
